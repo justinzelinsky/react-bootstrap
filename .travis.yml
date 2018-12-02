@@ -3,5 +3,3 @@ node_js:
   - node
 os:
   - osx
-after_success:
-  - 'npm run test'
