@@ -1,11 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import './styles/globals.scss';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from 'components/App';
 
-import './styles/globals.scss';
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('app')
-);
+ReactDOM.render(<App />, document.getElementById('app'));
