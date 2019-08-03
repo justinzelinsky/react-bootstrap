@@ -36,7 +36,7 @@ const rules = [
         options: {
           modules: true,
           importLoaders: 1,
-          localIdentName: '[name]__[local]:[hash:base64:5]',
+          localIdentName: '[hash:base64:5]',
           minimize: !devMode,
           sourceMap: !devMode
         }
@@ -56,7 +56,14 @@ const rules = [
 ];
 
 const optimization = {
-  minimizer: []
+  minimizer: [
+    new OptimizeCSSAssetsPlugin({}),
+    new UglifyJsPlugin({
+      cache: true,
+      parallel: true,
+      sourceMap: false
+    })
+  ]
 };
 
 const output = {
@@ -76,15 +83,6 @@ if (!devMode) {
       chunkFilename: '[id].[hash].css'
     })
   );
-
-  optimization.minimizer.concat([
-    new OptimizeCSSAssetsPlugin({}),
-    new UglifyJsPlugin({
-      cache: true,
-      parallel: true,
-      sourceMap: false
-    })
-  ]);
 }
 
 const resolve = {
