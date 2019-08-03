@@ -1,5 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import './styles/globals.scss';
 
 import React from 'react';
