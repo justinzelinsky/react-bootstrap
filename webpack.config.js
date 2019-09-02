@@ -36,7 +36,7 @@ const rules = [
         options: {
           modules: true,
           importLoaders: 1,
-          localIdentName: '[hash:base64:5]',
+          localIdentName: '[name]-[local]-[hash:base64:6]',
           minimize: !devMode,
           sourceMap: !devMode
         }
