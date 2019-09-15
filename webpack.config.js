@@ -1,4 +1,4 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -34,17 +34,18 @@ const rules = [
       {
         loader: 'css-loader',
         options: {
-          modules: true,
           importLoaders: 1,
-          localIdentName: '[name]-[local]-[hash:base64:6]',
-          minimize: !devMode,
-          sourceMap: !devMode
+          sourceMap: !devMode,
+          modules: {
+            mode: 'local',
+            localIdentName: '[name]-[local]-[hash:base64:6]'
+          }
         }
       },
       {
         loader: 'sass-loader',
         options: {
-          data: '@import "src/styles/vars";'
+          prependData: '@import "src/styles/vars";'
         }
       }
     ]
@@ -72,7 +73,7 @@ const output = {
 };
 
 const plugins = [
-  new CleanWebpackPlugin(['dist']),
+  new CleanWebpackPlugin(),
   new HtmlWebpackPlugin({ template: './src/index.html' })
 ];
 
