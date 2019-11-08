@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const path = require('path');
 
 const paths = {
@@ -53,6 +54,17 @@ const rules = [
   {
     test: /\.css$/,
     use: ['style-loader', 'css-loader']
+  },
+  {
+    test: /\.(png|jpg|gif|svg)$/i,
+    use: [
+      {
+        loader: 'url-loader',
+        options: {
+          limit: 8192
+        }
+      }
+    ]
   }
 ];
 
@@ -64,7 +76,10 @@ const optimization = {
       parallel: true,
       sourceMap: false
     })
-  ]
+  ],
+  splitChunks: {
+    chunks: 'all'
+  }
 };
 
 const output = {
@@ -74,7 +89,10 @@ const output = {
 
 const plugins = [
   new CleanWebpackPlugin(),
-  new HtmlWebpackPlugin({ template: './src/index.html' })
+  new HtmlWebpackPlugin({
+    template: './src/index.html',
+    title: 'React Starter'
+  })
 ];
 
 if (!devMode) {
@@ -84,6 +102,10 @@ if (!devMode) {
       chunkFilename: '[id].[hash].css'
     })
   );
+}
+
+if (process.env.WEBPACK_ANALYZE) {
+  plugins.push(new BundleAnalyzerPlugin());
 }
 
 const resolve = {
