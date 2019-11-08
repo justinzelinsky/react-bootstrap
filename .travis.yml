@@ -6,4 +6,4 @@ os:
 install:
   - npm ci
 script:
-  - npm test-coverage
+  - npm run test-coverage
