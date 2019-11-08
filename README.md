@@ -16,3 +16,21 @@ Run `npm start:dev` and navigate to `localhost:8080`
 ## Develop
 
 Remove `components/App` and update `App.jsx` to reference your application.
+
+## Project Organization and Details
+
+This is a seed for a basic React project. It uses CSS Modules with SCSS for styling and includes `react-boostrap` components with the CSS being loaded via a CDN.
+
+The directory structure is as follows:
+
+```
+src
+|--components
+   |--<ComponentName>
+      | <ComponentName>.jsx
+      | style.scss
+      | <ComponentName>.test.js
+      | index.js
+```
+
+`index.jsx` will export `<ComponentName>` as default so your imports can look like `import ComponentName from 'components/ComponentName'`
