@@ -17,19 +17,24 @@ const devServer = {
   contentBase: paths.dist,
   compress: true,
   hot: true,
+  open: 'Google Chrome',
   port: 9000
 };
+
+const devtool = devMode ? 'cheap-module-eval-source-map' : 'inline-source-map';
 
 const entry = path.join(paths.source, 'index.jsx');
 
 const rules = [
   {
     test: /.(jsx?)$/,
+    include: paths.source,
     exclude: /node_modules/,
     use: ['babel-loader', 'eslint-loader']
   },
   {
     test: /.scss$/,
+    include: paths.source,
     use: [
       styleLoader,
       {
@@ -70,7 +75,7 @@ const rules = [
 
 const optimization = {
   minimizer: [
-    new OptimizeCSSAssetsPlugin({}),
+    new OptimizeCSSAssetsPlugin(),
     new UglifyJsPlugin({
       cache: true,
       parallel: true,
@@ -90,6 +95,7 @@ const output = {
 const plugins = [
   new CleanWebpackPlugin(),
   new HtmlWebpackPlugin({
+    favicon: path.join(paths.source, 'assets/icons/favicon.ico'),
     template: './src/index.html',
     title: 'React Starter'
   })
@@ -110,11 +116,13 @@ if (process.env.WEBPACK_ANALYZE) {
 
 const resolve = {
   extensions: ['.jsx', '.js'],
-  modules: ['node_modules', 'src', 'src/components']
+  modules: ['node_modules', 'src', 'src/components'],
+  symlinks: false
 };
 
 module.exports = {
   devServer,
+  devtool,
   entry,
   module: {
     rules
