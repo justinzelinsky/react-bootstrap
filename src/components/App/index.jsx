@@ -1,7 +1,3 @@
-import './style.scss';
-
-import React from 'react';
-
-const App = () => <div styleName="app">Hello, World</div>;
+import App from './App';
 
 export default App;
