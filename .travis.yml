@@ -4,8 +4,6 @@ node_js:
 os:
   - osx
 install:
-  - npm install -g codecov
-  - npm install
+  - npm ci
 script:
-  - npm test
-  - codecov
+  - npm test-coverage
