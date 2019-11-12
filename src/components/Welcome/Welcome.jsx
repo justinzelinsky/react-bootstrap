@@ -2,6 +2,7 @@ import './style.scss';
 
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
+
 import ReactLogo from 'assets/images/react.svg';
 
 const Welcome = () => (
