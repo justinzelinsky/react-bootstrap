@@ -2,9 +2,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const paths = {
   source: path.join(__dirname, 'src'),
@@ -74,12 +74,11 @@ const rules = [
 ];
 
 const optimization = {
+  minimize: true,
   minimizer: [
     new OptimizeCSSAssetsPlugin(),
-    new UglifyJsPlugin({
-      cache: true,
-      parallel: true,
-      sourceMap: false
+    new TerserPlugin({
+      extractComments: false
     })
   ],
   splitChunks: {
