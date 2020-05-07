@@ -11,7 +11,7 @@ Run `npm i`
 
 ## Run
 
-Run `npm start:dev` and navigate to `localhost:8080`
+Run `npm start` and navigate to `localhost:8080`
 
 ## Develop
 
@@ -27,10 +27,7 @@ The directory structure is as follows:
 src
 |--components
    |--<ComponentName>
-      | <ComponentName>.jsx
       | style.scss
-      | <ComponentName>.test.js
-      | index.js
+      | test.js
+      | index.jsx
 ```
-
-`index.jsx` will export `<ComponentName>` as default so your imports can look like `import ComponentName from 'components/ComponentName'`
