@@ -1,8 +1,7 @@
 import './style.scss';
 
-import React from 'react';
-
 import Welcome from 'components/Welcome';
+import React from 'react';
 
 const App = () => (
   <div styleName="app">

@@ -13,8 +13,12 @@
     "ecmaVersion": 6,
     "sourceType": "module"
   },
-  "plugins": ["react", "jest"],
+  "plugins": ["react", "jest", "simple-import-sort"],
   "rules": {
+    "simple-import-sort/sort": "error",
+    "keyword-spacing": "error",
+    "object-curly-spacing": ["error", "always"],
+    "no-trailing-spaces": "error",
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
