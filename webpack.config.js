@@ -6,6 +6,7 @@ const path = require('path');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const WebpackStatsProgress = require('webpack-stats-progress');
 
 const paths = {
   source: path.join(__dirname, 'src'),
@@ -108,6 +109,10 @@ if (!devMode) {
       chunkFilename: '[id].[hash].css'
     })
   );
+
+  plugins.push(
+    new WebpackStatsProgress({ buildFolder: paths.dist })
+  );
 }
 
 if (process.env.WEBPACK_ANALYZE) {
@@ -120,6 +125,8 @@ const resolve = {
   symlinks: false
 };
 
+const stats = 'none';
+
 const webpackConfig = {
   devServer,
   devtool,
@@ -130,7 +137,8 @@ const webpackConfig = {
   output,
   optimization,
   plugins,
-  resolve
+  resolve,
+  stats
 };
 
 if (process.env.WEBPACK_ANALYZE) {
