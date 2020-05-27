@@ -4,6 +4,6 @@ import renderer from 'react-test-renderer';
 
 test('Welcome renders', () => {
   const component = renderer.create(<Welcome />);
-  let tree = component.toJSON();
+  const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
