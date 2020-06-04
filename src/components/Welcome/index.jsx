@@ -2,7 +2,7 @@ import './style.scss';
 
 import ReactLogo from 'assets/images/react.svg';
 import React from 'react';
-import { Jumbotron } from 'react-bootstrap';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 function Welcome() {
   return (
