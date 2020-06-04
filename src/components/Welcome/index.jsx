@@ -8,12 +8,16 @@ function Welcome() {
   return (
     <Jumbotron styleName="welcome-splash">
       <h1>
-        <img alt="React" src={ReactLogo} styleName="react-logo" />
-      React Starter
+        <img
+          alt="React"
+          src={ReactLogo}
+          styleName="react-logo"
+        />
+        React Starter
       </h1>
 
       <div styleName="get-started">
-      Remove <code>components/Welcome</code> to begin working!
+        Remove <code>components/Welcome</code> to begin working!
       </div>
     </Jumbotron>
   );
