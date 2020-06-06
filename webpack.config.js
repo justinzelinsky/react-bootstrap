@@ -13,7 +13,6 @@ const paths = {
   dist: path.join(__dirname, 'dist')
 };
 const devMode = process.env.NODE_ENV !== 'production';
-const styleLoader = devMode ? 'style-loader' : MiniCssExtractPlugin.loader;
 
 const devServer = {
   contentBase: paths.dist,
@@ -33,30 +32,6 @@ const rules = [
     include: paths.source,
     exclude: /node_modules/,
     use: ['babel-loader', 'eslint-loader']
-  },
-  {
-    test: /.scss$/,
-    include: paths.source,
-    use: [
-      styleLoader,
-      {
-        loader: 'css-loader',
-        options: {
-          importLoaders: 1,
-          sourceMap: !devMode,
-          modules: {
-            mode: 'local',
-            localIdentName: '[name]-[local]-[hash:base64:6]'
-          }
-        }
-      },
-      {
-        loader: 'sass-loader',
-        options: {
-          prependData: '@import "src/styles/vars";'
-        }
-      }
-    ]
   },
   {
     test: /\.css$/,
@@ -125,7 +100,7 @@ const resolve = {
   symlinks: false
 };
 
-const stats = 'none';
+const stats = devMode ? 'normal' : 'none';
 
 const webpackConfig = {
   devServer,

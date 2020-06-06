@@ -1,13 +1,12 @@
-import './style.scss';
-
+import Styled from 'components/App/Styles';
 import Welcome from 'components/Welcome';
 import React from 'react';
 
 function App() {
   return (
-    <div styleName="app">
+    <Styled.App>
       <Welcome />
-    </div>
+    </Styled.App>
   );
 }
 

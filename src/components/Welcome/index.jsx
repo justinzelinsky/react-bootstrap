@@ -1,25 +1,31 @@
-import './style.scss';
-
 import ReactLogo from 'assets/images/react.svg';
-import React from 'react';
-import Jumbotron from 'react-bootstrap/Jumbotron';
+import Styled from 'components/Welcome/Styles';
+import React, { useCallback, useState } from 'react';
 
 function Welcome() {
+  const [count, setCount] = useState(0);
+  const handleButtonClick = useCallback(function() {
+    setCount(count + 1);
+  }, [count]);
+
   return (
-    <Jumbotron styleName="welcome-splash">
-      <h1>
-        <img
+    <Styled.Jumbotron>
+      <Styled.Header>
+        <Styled.Logo
           alt="React"
           src={ReactLogo}
-          styleName="react-logo"
         />
         React Starter
-      </h1>
+      </Styled.Header>
 
-      <div styleName="get-started">
+      <Styled.GetStarted>
         Remove <code>components/Welcome</code> to begin working!
-      </div>
-    </Jumbotron>
+      </Styled.GetStarted>
+
+      <Styled.Button onClick={handleButtonClick}>
+        Or click me for fun! ({count})
+      </Styled.Button>
+    </Styled.Jumbotron>
   );
 }
 
