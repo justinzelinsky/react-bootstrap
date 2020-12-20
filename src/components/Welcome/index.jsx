@@ -2,9 +2,9 @@ import ReactLogo from 'assets/images/react.svg';
 import Styled from 'components/Welcome/Styles';
 import React, { useCallback, useState } from 'react';
 
-function Welcome() {
+function Welcome () {
   const [count, setCount] = useState(0);
-  const handleButtonClick = useCallback(function() {
+  const handleButtonClick = useCallback(function () {
     setCount(count + 1);
   }, [count]);
 

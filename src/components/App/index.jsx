@@ -2,7 +2,7 @@ import Styled from 'components/App/Styles';
 import Welcome from 'components/Welcome';
 import React from 'react';
 
-function App() {
+function App () {
   return (
     <Styled.App>
       <Welcome />

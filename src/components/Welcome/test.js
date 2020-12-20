@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import Welcome from 'components/Welcome';
 import React from 'react';
 
-test('Button click should increment count', function() {
+test('Button click should increment count', function () {
   render(<Welcome />);
 
   expect(screen.getByRole('button')).toHaveTextContent('Or click me for fun! (0)');
