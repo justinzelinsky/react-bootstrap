@@ -5,16 +5,16 @@ import colors from 'styles/colors';
 import devices from 'styles/devices';
 
 const Button = styled(BootstrapButton)`
+  display: block;
   margin: 30px auto 0 auto;
   width: 300px;
-  display: block;
 `;
 
 const Jumbotron = styled(BootstrapJumbotron)`
   @media ${devices.phone} {
-    position: fixed;
     top: 50%;
     transform: translate(0, -50%);
+    position: fixed;
   }
 
   @media ${devices.desktop} {
@@ -25,9 +25,7 @@ const Jumbotron = styled(BootstrapJumbotron)`
   }
 `;
 
-const Header = styled.h1`
-
-`;
+const Header = styled.h1``;
 
 const Logo = styled.img`
   width: 150px;
