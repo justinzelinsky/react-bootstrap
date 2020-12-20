@@ -14,20 +14,22 @@
     "sourceType": "module"
   },
   "plugins": ["react", "jest", "simple-import-sort"],
+  "root": true,
   "rules": {
-    "simple-import-sort/sort": "error",
+    "comma-spacing": "error",
+    "key-spacing": "error",
     "keyword-spacing": "error",
-    "object-curly-spacing": ["error", "always"],
     "no-trailing-spaces": "error",
-    "indent": ["error", 2, { "SwitchCase": 1 }],
-    "linebreak-style": ["error", "unix"],
+    "no-var": "error",
+    "object-curly-spacing":  ["error", "always"],
+    "prefer-const": "error",
     "quotes": ["error", "single"],
+    "rest-spread-spacing": ["error", "always"],
     "semi": ["error", "always"],
-    "jest/no-disabled-tests": "warn",
-    "jest/no-focused-tests": "error",
-    "jest/no-identical-title": "error",
-    "jest/prefer-to-have-length": "warn",
-    "jest/valid-expect": "error"
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "space-before-blocks": "error",
+    "space-before-function-paren": "error"
   },
   "settings": {
     "react": {
